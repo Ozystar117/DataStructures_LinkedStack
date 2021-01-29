@@ -1,1 +1,1 @@
-# DataStructures_LinkedStack
+# DataStructures_Stack
