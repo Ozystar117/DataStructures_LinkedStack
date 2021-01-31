@@ -11,9 +11,9 @@ import stack.Stack;
  * @author Emmanuel Ozioma
  *
  */
-public class LinkedStack<Object> implements Stack<Object>{
+public class LinkedStack<E> implements Stack<E>{
 //	reference the node at the top of the stack
-	private LinkNode<Object> top;
+	private LinkNode<E> top;
 //	the size of the stack
 	private int size;
 	/**
@@ -37,7 +37,7 @@ public class LinkedStack<Object> implements Stack<Object>{
 	
 //	return the object stored in the node at the top of the stack
 	@Override
-	public Object peek() {
+	public E peek() {
 		if(isEmpty()) {
 			throw new EmptyStackException();
 		}
@@ -48,8 +48,8 @@ public class LinkedStack<Object> implements Stack<Object>{
 	 * Push an object to the stack
 	 */
 	@Override
-	public void push(Object theObject) {
-		top = new LinkNode<Object>(theObject, top); // the R.H.S is evaluated before being assigned to the L.H.S
+	public void push(E theObject) {
+		top = new LinkNode<E>(theObject, top); // the R.H.S is evaluated before being assigned to the L.H.S
 		size++;
 	}
 	
@@ -57,11 +57,11 @@ public class LinkedStack<Object> implements Stack<Object>{
 	 * Remove the object at the top of the stack
 	 */
 	@Override
-	public Object pop() {
+	public E pop() {
 		if(isEmpty()) {
 			throw new EmptyStackException();
 		}
-		Object theObject = top.theObject; // store the object to be removed
+		E theObject = top.theObject; // store the object to be removed
 		top = top.next;
 		size--; //decrease the size;
 		return theObject;

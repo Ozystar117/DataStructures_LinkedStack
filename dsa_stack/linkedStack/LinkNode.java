@@ -7,9 +7,9 @@ package linkedStack;
  * @author Emmanuel Ozioma
  *
  */
-public class LinkNode<Object> {
+public class LinkNode<E> {
 	// field that stores the object in the node
-	public Object theObject;
+	public E theObject;
 	// a reference to the next node in the stack
 	public LinkNode next;
 	
@@ -17,7 +17,7 @@ public class LinkNode<Object> {
 	 * @param theObject
 	 * @param next
 	 */
-	public LinkNode(Object theObject, LinkNode next) {
+	public LinkNode(E theObject, LinkNode next) {
 		this.theObject = theObject;
 		this.next = next;
 	}
