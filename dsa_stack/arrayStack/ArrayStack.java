@@ -69,9 +69,12 @@ public class ArrayStack<E> implements Stack<E>{
 		return theObject;
 	}
 
+	/**
+	 * Return the size of the stack
+	 */
 	@Override
 	public int size() {
-		return size();
+		return stack.length;
 	}
 
 	/**
@@ -79,12 +82,27 @@ public class ArrayStack<E> implements Stack<E>{
 	 */
 	@Override
 	public void push(E theObject) {
+//		if the stack is full
+		if(top == size() - 1) {
+			E[] newStack = (E[])new Object[2 * size()];
+			System.arraycopy(stack, 0, newStack, 0, stack.length); // copy all the elements in the stack to the new stack
+			stack = newStack; //update the stack
+		}
 		top++; //increase the top index
 		stack[top] = theObject;
 	}
 	
 	public String toString() {
-		String output = "[]";
+		if(isEmpty()) {
+			throw new EmptyStackException();
+		}
+		String output = "[";
+//		loop through the stack
+		for(int i = top ; i >= 0; i--) {
+			System.out.println(i);
+			output += stack[i] + ", ";
+		}
+		output = output.substring(0, output.length() - 2) + "]"; // remove the extra comma and space ", " at the end
 		return output;
 	}
 }

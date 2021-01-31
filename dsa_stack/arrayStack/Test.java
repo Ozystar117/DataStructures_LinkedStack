@@ -22,7 +22,14 @@ public class Test {
 		
 		
 		Stack<String> arrayStack = new ArrayStack<String>();
-		
+		arrayStack.push("a");
+		arrayStack.push("b");
+		System.out.println(arrayStack.peek());
+		System.out.println(arrayStack);
+		for(int i = 1 ; i < 10; i++) {
+			arrayStack.push("test " + i);
+		}
+		System.out.println(arrayStack);
 	}
 
 }
